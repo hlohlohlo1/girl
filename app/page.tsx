@@ -85,24 +85,32 @@ export default function Home() {
 
    function onSubmit(values: z.infer<typeof formSchema>) {
       addDoc(collection(db, "girls"), values);
-     localStorage.setItem("already?", "yes");
+      if (typeof window !== "undefined") {
+         localStorage.setItem("already?", "yes");
+      }
    }
 
-    if (localStorage.getItem("already?")) {
-       return (
-          <Dialog open={true}>
-             <DialogContent>
-                <DialogHeader>
-                   <DialogTitle className="items-center flex flex-col">
-                      Chalo Chalo hogya, ab 404yuv404 ke replay ka wait karo
-                      <Image src={"/rickroll-roll.gif"} className="rounded-lg" width={200} height={200} alt="" />
-                   </DialogTitle>
-                   <DialogDescription>Hogya</DialogDescription>
-                </DialogHeader>
-             </DialogContent>
-          </Dialog>
-       );
-    }
+   if (localStorage.getItem("already?")) {
+      return (
+         <Dialog open={true}>
+            <DialogContent>
+               <DialogHeader>
+                  <DialogTitle className="items-center flex flex-col">
+                     Chalo Chalo hogya, ab 404yuv404 ke replay ka wait karo
+                     <Image
+                        src={"/rickroll-roll.gif"}
+                        className="rounded-lg"
+                        width={200}
+                        height={200}
+                        alt=""
+                     />
+                  </DialogTitle>
+                  <DialogDescription>Hogya</DialogDescription>
+               </DialogHeader>
+            </DialogContent>
+         </Dialog>
+      );
+   }
    return (
       <div className="flex md:px-16 py-10 px-5 items-center flex-col">
          <h1 className="text-xl font-semibold pb-10">
@@ -341,8 +349,4 @@ export default function Home() {
       </div>
    );
 }
-
-
-
-
 
