@@ -2,13 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import {
-   Dialog,
-   DialogContent,
-   DialogDescription,
-   DialogHeader,
-   DialogTitle,
-} from "@/components/ui/dialog";
-import {
    Form,
    FormControl,
    FormDescription,
@@ -33,7 +26,6 @@ import {
 import { db } from "@/firebase/firebaseConfig";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { addDoc, collection } from "firebase/firestore";
-import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -62,8 +54,8 @@ const formSchema = z.object({
       message:
          "dekho mujhe pta hai ki tumhe bhi ek boy firend chahiye, kyu na mai hu ban jau, ek bar muaka to de ke dekho",
    }),
-   dehej: z.string().min(4, {
-      message: "btao na yaar",
+   dehej: z.number().min(1000000, {
+      message: "minimum 10 lakh toh do",
    }),
 });
 
@@ -90,27 +82,27 @@ export default function Home() {
       }
    }
 
-   if (localStorage.getItem("already?")) {
-      return (
-         <Dialog open={true}>
-            <DialogContent>
-               <DialogHeader>
-                  <DialogTitle className="items-center flex flex-col">
-                     Chalo Chalo hogya, ab 404yuv404 ke replay ka wait karo
-                     <Image
-                        src={"/rickroll-roll.gif"}
-                        className="rounded-lg"
-                        width={200}
-                        height={200}
-                        alt=""
-                     />
-                  </DialogTitle>
-                  <DialogDescription>Hogya</DialogDescription>
-               </DialogHeader>
-            </DialogContent>
-         </Dialog>
-      );
-   }
+   // if (localStorage.getItem("already?")) {
+   //    return (
+   //       <Dialog open={true}>
+   //          <DialogContent>
+   //             <DialogHeader>
+   //                <DialogTitle className="items-center flex flex-col">
+   //                   Chalo Chalo hogya, ab 404yuv404 ke replay ka wait karo
+   //                   <Image
+   //                      src={"/rickroll-roll.gif"}
+   //                      className="rounded-lg"
+   //                      width={200}
+   //                      height={200}
+   //                      alt=""
+   //                   />
+   //                </DialogTitle>
+   //                <DialogDescription>Hogya</DialogDescription>
+   //             </DialogHeader>
+   //          </DialogContent>
+   //       </Dialog>
+   //    );
+   // }
    return (
       <div className="flex md:px-16 py-10 px-5 items-center flex-col">
          <h1 className="text-xl font-semibold pb-10">
