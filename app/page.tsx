@@ -54,7 +54,7 @@ const formSchema = z.object({
       message:
          "dekho mujhe pta hai ki tumhe bhi ek boy firend chahiye, kyu na mai hu ban jau, ek bar muaka to de ke dekho",
    }),
-   dehej: z.number().min(1000000, {
+   dehej: z.string().min(1000000, {
       message: "minimum 10 lakh toh do",
    }),
 });
@@ -313,6 +313,7 @@ export default function Home() {
                         <FormControl>
                            <Input
                               type="number"
+                              min={1000000}
                               placeholder="For example, 6969696 or 42020420"
                               {...field}
                            />
