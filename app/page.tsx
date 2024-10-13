@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import {
    InputOTP,
    InputOTPGroup,
+   InputOTPSeparator,
    InputOTPSlot,
 } from "@/components/ui/input-otp";
 import {
@@ -54,8 +55,11 @@ const formSchema = z.object({
       message:
          "dekho mujhe pta hai ki tumhe bhi ek boy firend chahiye, kyu na mai hu ban jau, ek bar muaka to de ke dekho",
    }),
-   dehej: z.string().min(1000000, {
+   dehej: z.string().min(2, {
       message: "minimum 10 lakh toh do",
+   }),
+   car: z.string().min(2, {
+      message: "ye required hai",
    }),
 });
 
@@ -70,6 +74,7 @@ export default function Home() {
          girlfriend: "",
          name: "",
          phonenumber: "",
+         car: ""
       },
    });
 
@@ -111,7 +116,7 @@ export default function Home() {
          <Form {...form}>
             <form
                onSubmit={form.handleSubmit(onSubmit)}
-               className="space-y-5 w-full max-w-[500px]"
+               className="space-y-5 w-full max-w-[500px] flex flex-col"
             >
                <FormField
                   control={form.control}
@@ -185,7 +190,7 @@ export default function Home() {
                            </FormControl>
                            <SelectContent>
                               <SelectItem value="Yes">Haa bilkul</SelectItem>
-                              <SelectItem value="Yes">Ek dum</SelectItem>
+                              <SelectItem value="Yess">Ek dum</SelectItem>
                            </SelectContent>
                         </Select>
                         <FormDescription>aree handsome hu?</FormDescription>
@@ -281,17 +286,47 @@ export default function Home() {
                         <FormControl>
                            <InputOTP maxLength={10} {...field}>
                               <InputOTPGroup className="w-full">
-                                 <InputOTPSlot className="h-9 w-9" index={0} />
-                                 <InputOTPSlot className="h-9 w-9" index={1} />
-                                 <InputOTPSlot className="h-9 w-9" index={2} />
-                                 <InputOTPSlot className="h-9 w-9" index={3} />
-                                 <InputOTPSlot className="h-9 w-9" index={4} />
-                                 <InputOTPSlot className="h-9 w-9" index={5} />
-                                 <InputOTPSlot className="h-9 w-9" index={6} />
-                                 <InputOTPSlot className="h-9 w-9" index={7} />
-                                 <InputOTPSlot className="h-9 w-9" index={8} />
                                  <InputOTPSlot
-                                    className="h-9 w-9 border-r"
+                                    className="h-9 w-full"
+                                    index={0}
+                                 />
+                                 <InputOTPSlot
+                                    className="h-9 w-full"
+                                    index={1}
+                                 />
+                                 <InputOTPSlot
+                                    className="h-9 w-full"
+                                    index={2}
+                                 />
+                                 <InputOTPSlot
+                                    className="h-9 w-full"
+                                    index={3}
+                                 />
+                                 <InputOTPSlot
+                                    className="h-9 w-full border-r"
+                                    index={4}
+                                 />
+                              </InputOTPGroup>
+                              <InputOTPSeparator />
+                              <InputOTPGroup className="w-full">
+                                 <InputOTPSlot
+                                    className="h-9 w-full"
+                                    index={5}
+                                 />
+                                 <InputOTPSlot
+                                    className="h-9 w-full"
+                                    index={6}
+                                 />
+                                 <InputOTPSlot
+                                    className="h-9 w-full"
+                                    index={7}
+                                 />
+                                 <InputOTPSlot
+                                    className="h-9 w-full"
+                                    index={8}
+                                 />
+                                 <InputOTPSlot
+                                    className="h-9 w-full border-r"
                                     index={9}
                                  />
                               </InputOTPGroup>
@@ -325,21 +360,58 @@ export default function Home() {
                      </FormItem>
                   )}
                />
-               <Button type="submit">Submit</Button>
+               <FormField
+                  control={form.control}
+                  name="car"
+                  render={({ field }) => (
+                     <FormItem>
+                        <FormLabel>Will you give me a car?</FormLabel>
+                        <Select
+                           onValueChange={field.onChange}
+                           defaultValue={field.value}
+                        >
+                           <FormControl>
+                              <SelectTrigger>
+                                 <SelectValue placeholder="Will you give me a car?" />
+                              </SelectTrigger>
+                           </FormControl>
+                           <SelectContent>
+                              <SelectItem value="Yes">
+                                 Haa dekho humare papa toh de denge
+                              </SelectItem>
+                              <SelectItem value="No">
+                                 Nhi mera baap garib hai nhi de payega
+                              </SelectItem>
+                           </SelectContent>
+                        </Select>
+                        <FormDescription>
+                           baap amir ghar ka hai? gaadi dogi?
+                        </FormDescription>
+                        <FormMessage />
+                     </FormItem>
+                  )}
+               />
+               <Button type="submit" variant="destructive" className="sm:w-20 w-full">Submit</Button>
             </form>
          </Form>
 
          <h2 className="pt-10 font-semibold">
             This abomination is made by{" "}
             <a
-               href="https://github.com/yuvu404"
+               href="https://www.instagram.com/404yuv404/"
                target="_blank"
                className="hover:underline text-blue-400 cursor-pointer"
             >
-               Yuvraj404
+               404Yuv404
             </a>
          </h2>
       </div>
    );
 }
+
+
+
+
+
+
 
