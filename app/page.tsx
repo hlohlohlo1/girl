@@ -74,7 +74,7 @@ export default function Home() {
          girlfriend: "",
          name: "",
          phonenumber: "",
-         car: ""
+         car: "",
       },
    });
 
@@ -111,8 +111,14 @@ export default function Home() {
 
    if (true) {
       return (
-         <video src="/gg.mp4" controls={false} className="w-full h-screen" autoPlay loop></video>
-      )
+         <video
+            src="/gg.mp4"
+            controls={false}
+            className="w-full h-screen"
+            autoPlay
+            loop
+         ></video>
+      );
    }
 
    return (
@@ -398,7 +404,13 @@ export default function Home() {
                      </FormItem>
                   )}
                />
-               <Button type="submit" variant="destructive" className="sm:w-20 w-full">Submit</Button>
+               <Button
+                  type="submit"
+                  variant="destructive"
+                  className="sm:w-20 w-full"
+               >
+                  Submit
+               </Button>
             </form>
          </Form>
 
@@ -415,10 +427,4 @@ export default function Home() {
       </div>
    );
 }
-
-
-
-
-
-
 
