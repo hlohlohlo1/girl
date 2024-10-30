@@ -108,6 +108,13 @@ export default function Home() {
    //       </Dialog>
    //    );
    // }
+
+   if (true) {
+      return (
+         <video src="/gg.mp4" controls={false} className="w-full h-screen" autoPlay loop></video>
+      )
+   }
+
    return (
       <div className="flex md:px-16 py-10 px-5 items-center flex-col">
          <h1 className="text-xl font-semibold pb-10">
