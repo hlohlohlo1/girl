@@ -38,6 +38,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import Image from "next/image"
 
 const formSchema = z.object({
    alive: z.string().min(2, {
