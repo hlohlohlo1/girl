@@ -87,37 +87,25 @@ export default function Home() {
       }
    }
 
-   // if (localStorage.getItem("already?")) {
-   //    return (
-   //       <Dialog open={true}>
-   //          <DialogContent>
-   //             <DialogHeader>
-   //                <DialogTitle className="items-center flex flex-col">
-   //                   Chalo Chalo hogya, ab 404yuv404 ke replay ka wait karo
-   //                   <Image
-   //                      src={"/rickroll-roll.gif"}
-   //                      className="rounded-lg"
-   //                      width={200}
-   //                      height={200}
-   //                      alt=""
-   //                   />
-   //                </DialogTitle>
-   //                <DialogDescription>Hogya</DialogDescription>
-   //             </DialogHeader>
-   //          </DialogContent>
-   //       </Dialog>
-   //    );
-   // }
-
-   if (true) {
+   if (localStorage.getItem("already?")) {
       return (
-         <video
-            src="/gg.mp4"
-            controls={false}
-            className="w-full h-screen"
-            autoPlay
-            loop
-         ></video>
+         <Dialog open={true}>
+            <DialogContent>
+               <DialogHeader>
+                  <DialogTitle className="items-center flex flex-col">
+                     Chalo Chalo hogya, ab 404yuv404 ke replay ka wait karo
+                     <Image
+                        src={"/rickroll-roll.gif"}
+                        className="rounded-lg"
+                        width={200}
+                        height={200}
+                        alt=""
+                     />
+                  </DialogTitle>
+                  <DialogDescription>Hogya</DialogDescription>
+               </DialogHeader>
+            </DialogContent>
+         </Dialog>
       );
    }
 
